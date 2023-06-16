@@ -78,6 +78,7 @@
   function startCall(to) {
     var domElement = document.getElementById('audio');
     domElement.play();
+    console.log(to);
     $.ajax({
         url: 'https://api.tizeti.com/developers/v1/dev_call',
         type: 'post',
@@ -101,6 +102,6 @@
   <audio id="audio"></audio>
 <button onclick="session.accept();">Pickup</button>
 <button onclick="session.bye();">Hangup</button>
-<input id="phoneNumber" onchange=("console.log(document.querySelector(this).value")/>
+<input id="phoneNumber" />
 <button onclick="startCall(document.querySelector('#phoneNumber').value)">Call</button>
 </html>
