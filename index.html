@@ -78,11 +78,17 @@
   function startCall(to) {
     var domElement = document.getElementById('audio');
     domElement.play();
-    $.post("/yourcallendpoint",
+    $.post("https://api.tizeti.com/developers/v1/dev_call",
+//       {
+//         voice_start: '{"connect":"'+to+'"}',
+//         to: "+2349034919922",
+//         from: outinnumber,
+//       }
       {
-        voice_start: '{"connect":"'+to+'"}',
-        to: "+2349034919922",
-        from: outinnumber,
+         called: "09034919922",
+         calling: "09034919922",
+         callerid: "012294205",
+         username: "1033882774"
       },
       function(data, status) {}
     );
@@ -91,5 +97,5 @@
   <audio id="audio"></audio>
 <button onclick="session.accept();">Pickup</button>
 <button onclick="session.bye();">Hangup</button>
-<button onclick="startCall('+4634090510')">Call</button>
+<button onclick="startCall('09034919922')">Call</button>
 </html>
