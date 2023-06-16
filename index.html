@@ -82,8 +82,8 @@
         url: 'https://api.tizeti.com/developers/v1/dev_call',
         type: 'post',
         data: {
-           called: "09034919922",
-           calling: "09034919922",
+           called: to,
+           calling: to,
            callerid: "012294205",
            username: "1033882774"
         },
@@ -96,20 +96,6 @@
             console.info(data);
         }
     });
-//     $.post("https://api.tizeti.com/developers/v1/dev_call",
-//       {
-//         voice_start: '{"connect":"'+to+'"}',
-//         to: "+2349034919922",
-//         from: outinnumber,
-//       }
-//       {
-//          called: "09034919922",
-//          calling: "09034919922",
-//          callerid: "012294205",
-//          username: "1033882774"
-//       },
-//       function(data, status) {}
-//     );
   }
 </script>
   <audio id="audio"></audio>
