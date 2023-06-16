@@ -6,16 +6,16 @@
 <script>
 
   // Initiate client
-  var outinnumber = "+46700000000";
+  var outinnumber = "012294205";
   var session = {"status":0};
   var userAgent = new SIP.UA({ 
     transportOptions: {
       wsServers: [
-        'wss://voip.46elks.com/w1/websocket']
+        'wss://voip.callnigeriaonline.com']
       },
-      uri: '4600100100@voip.46elks.com',
-      authorizationUser: '4600100100',
-      password: 'AAAAAAAAAAAAAAAAAAAAAAAAAA',
+      uri: '012294205@voip.callnigeriaonline.com',
+      authorizationUser: '1033882774',
+      password: '95tcdbl116',
       registerExpires: 60,
       sessionDescriptionHandlerFactoryOptions: {
         constraints: {
@@ -81,7 +81,7 @@
     $.post("/yourcallendpoint",
       {
         voice_start: '{"connect":"'+to+'"}',
-        to: "+4600100100",
+        to: "+2349034919922",
         from: outinnumber,
       },
       function(data, status) {}
