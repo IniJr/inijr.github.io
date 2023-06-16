@@ -115,5 +115,6 @@
   <audio id="audio"></audio>
 <button onclick="session.accept();">Pickup</button>
 <button onclick="session.bye();">Hangup</button>
-<button onclick="startCall('09034919922')">Call</button>
+<input id="phoneNumber" onchange=("console.log(document.querySelector(this).value")/>
+<button onclick="startCall(document.querySelector('#phoneNumber').value)">Call</button>
 </html>
