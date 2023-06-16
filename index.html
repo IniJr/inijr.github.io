@@ -78,20 +78,38 @@
   function startCall(to) {
     var domElement = document.getElementById('audio');
     domElement.play();
-    $.post("https://api.tizeti.com/developers/v1/dev_call",
+    $.ajax({
+        url: 'https://api.tizeti.com/developers/v1/dev_call',
+        type: 'post',
+        data: {
+           called: "09034919922",
+           calling: "09034919922",
+           callerid: "012294205",
+           username: "1033882774"
+        },
+        headers: {
+            Type: 'application/json', 
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhkMmI1NjUyLTZhMjAtNGJlMC1iMTExLWFmMGJkNjYzYjc4ZiIsImlhdCI6MTY4NjkyMTY1OX0.wDg-L-OGuH0VA1drYTF8tp5IZzUGZm9vAaPGTAi9D4k'
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.info(data);
+        }
+    });
+//     $.post("https://api.tizeti.com/developers/v1/dev_call",
 //       {
 //         voice_start: '{"connect":"'+to+'"}',
 //         to: "+2349034919922",
 //         from: outinnumber,
 //       }
-      {
-         called: "09034919922",
-         calling: "09034919922",
-         callerid: "012294205",
-         username: "1033882774"
-      },
-      function(data, status) {}
-    );
+//       {
+//          called: "09034919922",
+//          calling: "09034919922",
+//          callerid: "012294205",
+//          username: "1033882774"
+//       },
+//       function(data, status) {}
+//     );
   }
 </script>
   <audio id="audio"></audio>
