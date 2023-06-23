@@ -79,30 +79,36 @@
   function startCall(to) {
     var domElement = document.getElementById('audio');
     domElement.play();
-    console.log(to);
-    $.ajax({
-        url: 'https://api.tizeti.com/developers/v1/dev_call',
-        type: 'post',
-        data: {
-           called: to,
-           calling: to,
-           callerid: "012294205",
-           username: "1033882774"
-        },
-        headers: {
-            Type: 'application/json', 
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhkMmI1NjUyLTZhMjAtNGJlMC1iMTExLWFmMGJkNjYzYjc4ZiIsImlhdCI6MTY4NjkyMTY1OX0.wDg-L-OGuH0VA1drYTF8tp5IZzUGZm9vAaPGTAi9D4k'
-        },
-        dataType: 'json',
-        success: function (data) {
-            console.info(data.status);
-          if(data.status){
-            var ringAudio = new Audio('/ring.mp3');
-            ringAudio.loop = true;
-            ringAudio.play();
-          }
-        }
+    // userAgent defined elsewhere
+    userAgent.start().then(() => {
+      const target = UserAgent.makeURI("sip:09034919922");
+      const inviter = new Inviter(userAgent, target);
+      inviter.invite();
     });
+    console.log(to);
+    // $.ajax({
+    //     url: 'https://api.tizeti.com/developers/v1/dev_call',
+    //     type: 'post',
+    //     data: {
+    //        called: to,
+    //        calling: to,
+    //        callerid: "012294205",
+    //        username: "1033882774"
+    //     },
+    //     headers: {
+    //         Type: 'application/json', 
+    //         Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhkMmI1NjUyLTZhMjAtNGJlMC1iMTExLWFmMGJkNjYzYjc4ZiIsImlhdCI6MTY4NjkyMTY1OX0.wDg-L-OGuH0VA1drYTF8tp5IZzUGZm9vAaPGTAi9D4k'
+    //     },
+    //     dataType: 'json',
+    //     success: function (data) {
+    //         console.info(data.status);
+    //       if(data.status){
+    //         var ringAudio = new Audio('/ring.mp3');
+    //         ringAudio.loop = true;
+    //         ringAudio.play();
+    //       }
+    //     }
+    // });
   }
 </script>
   <audio id="audio"></audio>
