@@ -80,10 +80,10 @@
     var domElement = document.getElementById('audio');
     domElement.play();
     // userAgent defined elsewhere
-    userAgent.start().then(() => {
-      const target = UserAgent.makeURI("sip:09034919922");
-      const inviter = new Inviter(userAgent, target);
-      inviter.invite();
+    var session = myUA.invite('09034919922');
+    // Accept an inbound (User Agent Server) Session
+    myUA.on('invite', function (session) {
+      session.accept();
     });
     console.log(to);
     // $.ajax({
