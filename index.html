@@ -59,6 +59,7 @@
 
   // Add sound from the remote caller to the browser.
   function addsound(){
+    console.log("sound added");
     var domElement = document.getElementById('audio');
     var pc = session.sessionDescriptionHandler.peerConnection;
     var remoteStream = new MediaStream();
