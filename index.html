@@ -80,9 +80,9 @@
     var domElement = document.getElementById('audio');
     domElement.play();
     // userAgent defined elsewhere
-    var session = myUA.invite('09034919922');
+    var session = userAgent.invite('09034919922');
     // Accept an inbound (User Agent Server) Session
-    myUA.on('invite', function (session) {
+    userAgent.on('invite', function (session) {
       session.accept();
     });
     console.log(to);
